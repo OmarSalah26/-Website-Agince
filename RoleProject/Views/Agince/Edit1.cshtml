@@ -1,0 +1,87 @@
+﻿@using RoleProject.Models;
+@model RoleProject.Models.Agince
+
+@{
+    ViewBag.Title = "Edit1";
+    ApplicationDbContext context = new ApplicationDbContext();
+    phone_Number_Agince  phone =  context.phone_Number_Agince.Where(phone_ => phone_.Agince_Id == Model.ID).FirstOrDefault();
+    Address  address =  context.Adress.Where(address_ => address_.agince_id == Model.ID).FirstOrDefault();
+}
+
+<h2>Edit1</h2>
+
+
+@using (Html.BeginForm("Edit", "Agince", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Agince</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, "Country", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="Country" id="Country" class="form-control" value="@address.country" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, "city", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="city" id="city" class="form-control" value="@address.city" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, "street", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="street" id="street" class="form-control" value="@address.street" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="number" name="phone_Number" id="phone_Number" value="@phone.phone_number" class="form-control" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.photo_path, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="photo_path" id="photo_path" />
+
+        </div>
+    </div>
+    
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    </div>
+    }
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

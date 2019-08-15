@@ -1,0 +1,78 @@
+﻿@using  RoleProject.Models
+@model List<Agince>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Agince</h4>
+    <hr />
+    <table class="table table-hover">
+
+        <tr>
+            <th>
+               agince Name
+            </th>
+
+            <th>
+               Photo 
+            </th>
+            <th>
+                city
+            </th>
+            <th>
+                street
+            </th>
+            <th>
+                phone number
+            </th>
+            <th>
+               Others
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @item.name
+                </td>
+
+                <td>
+                    <img src="~/images/@item.photo_Agince" width="150" height="150" style="border-radius:50%" />
+                </td>
+                <td>
+                    @item.city
+                </td>
+                <td>
+                    @item.street
+                </td>
+                <td>
+                    @item.phone_number
+                </td>
+                <td>
+                    <a href="/Agince/Edit/@item.ID">Edit</a>
+               
+                    <a href="/Agince/delete/@item.ID">delete</a>
+                </td>
+
+            </tr>
+        }
+
+
+
+
+
+
+
+    </table>
+</div>
+<p>
+  
+    @Html.ActionLink("Back to List", "Index")
+</p>

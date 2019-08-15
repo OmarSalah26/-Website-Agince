@@ -1,0 +1,116 @@
+﻿@model IEnumerable<RoleProject.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>list of all cars </h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type_Of_Car)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chassis_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price_in_day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price_Total)
+        </th>
+        @*<th>
+                @Html.HiddenFor(model => model.Is_reseved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start_Book_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End_Book_Date)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Agince_Of_Car.name)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENT.Name)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_Of_Car)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car_Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car_Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chassis_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price_in_day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price_Total)
+            </td>
+            <td>
+                @Html.HiddenFor(modelItem => item.Is_reseved)
+            </td>
+            <td>
+                @Html.HiddenFor(modelItem => item.Start_Book_Date)
+            </td>
+            <td>
+                @Html.HiddenFor(modelItem => item.End_Book_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agince_Of_Car.name)
+            </td>
+            @if (item.Is_reseved == true)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLIENT.Name)
+                </td>
+            }
+
+
+
+            <td>
+                @if (item.Is_reseved == false)
+                {
+                    <div style="background:red; height:100px; width:100px;">  </div>
+
+                }
+                else
+                {
+                    <div style="background:blue ; height:100px; width:100px;">  </div>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Car_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Car_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Car_Id })
+         
+            </td>
+        </tr>
+    }
+
+</table>

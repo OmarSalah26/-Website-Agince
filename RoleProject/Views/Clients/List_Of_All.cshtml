@@ -1,0 +1,76 @@
+﻿@model IEnumerable<RoleProject.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        @*<th>
+            @Html.Password("password")
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.number_of_licience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_of_licience_expiry)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.phone_Number)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @*<td>
+                @Html.PasswordFor(modelItem => item.password)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.number_of_licience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_of_licience_expiry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Client_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Client_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Client_ID })
+            </td>
+        </tr>
+    }
+
+</table>

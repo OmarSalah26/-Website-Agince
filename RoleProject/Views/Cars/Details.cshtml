@@ -1,0 +1,109 @@
+﻿@model RoleProject.Models.Car
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_Of_Car)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_Of_Car)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chassis_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chassis_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price_in_day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price_in_day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price_Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price_Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Is_reseved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Is_reseved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Book_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Book_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Book_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Book_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agince_Of_Car.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agince_Of_Car.name))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENT.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENT.Name)
+        </dd>
+
+       
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Car_Id }) |
+    @Html.ActionLink("Back to List", "List_Of_All")
+</p>
